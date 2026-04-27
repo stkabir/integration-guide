@@ -1,0 +1,565 @@
+﻿---
+const stepsData = [
+  {
+    id: 1,
+    title: "Instalar Windows Terminal y PowerShell",
+    icon: "1",
+    content: `
+      <div class="info-box">
+        <h3>¿Qué es Windows Terminal?</h3>
+        <p>Windows Terminal es una aplicación moderna de terminal para Windows que permite usar PowerShell y otras terminales de forma más cómoda y visual.</p>
+      </div>
+      <h3>Paso 1.1: Instalar desde Microsoft Store</h3>
+      <ol>
+        <li>Abre la <strong>Microsoft Store</strong> en tu computadora</li>
+        <li>En el buscador de la tienda, escribe: <code>Windows Terminal</code></li>
+        <li>Busca la aplicación desarrollada por <strong>Microsoft Corporation</strong></li>
+        <li>Click en <strong>"Instalar"</strong></li>
+      </ol>
+      <h3>Paso 1.2: Instalar PowerShell</h3>
+      <ol>
+        <li>En Microsoft Store, busca: <code>PowerShell</code></li>
+        <li>Instala <strong>"PowerShell"</strong> (la versión más reciente)</li>
+      </ol>
+      <h3>Paso 1.3: Abrir Windows Terminal</h3>
+      <ol>
+        <li>Presiona la tecla <strong>Windows</strong> en tu teclado</li>
+        <li>Escribe <code>Terminal</code> o <code>Windows Terminal</code></li>
+        <li>Click en el icono para abrirlo</li>
+      </ol>
+      <h3>Paso 1.4: Configuración inicial</h3>
+      <p>Una vez abierto Windows Terminal, ya puedes escribir comandos. Verás algo como:</p>
+      <pre>PS C:\Users\TU_USUARIO></pre>
+      <p>Eso significa que estás en PowerShell y puedes empezar a escribir comandos.</p>
+    `
+  },
+  {
+    id: 2,
+    title: "Instalar Node.js",
+    icon: "2",
+    content: `
+      <div class="info-box">
+        <h3>¿Qué es Node.js?</h3>
+        <p>Node.js es un programa necesario para ejecutar OpenCode y otras herramientas de desarrollo.</p>
+      </div>
+      <h3>Paso 2.1: Descargar Node.js</h3>
+      <ol>
+        <li>Abre tu navegador (Edge, Chrome, etc.)</li>
+        <li>Ve a: <a href="https://nodejs.org/" target="_blank">https://nodejs.org/</a></li>
+        <li>Click en el botón verde grande que dice <strong>"LTS"</strong> (Recommended for most users)</li>
+        <li>Se descargará un archivo llamado <code>node-v20.x.x-x64.msi</code></li>
+      </ol>
+      <h3>Paso 2.2: Instalar Node.js</h3>
+      <ol>
+        <li>Busca el archivo descargado (normalmente en la carpeta <strong>Descargas</strong>)</li>
+        <li>Double-click en el archivo <code>.msi</code> para ejecutarlo</li>
+        <li>Si aparece una ventana pidiendo permisos, click <strong>"Sí"</strong></li>
+        <li>Sigue los pasos del installer</li>
+      </ol>
+      <h3>Paso 2.3: Verificar instalación</h3>
+      <pre>node --version</pre>
+      <p>Deberías ver algo como <code>v20.18.0</code>.</p>
+      <pre>npm --version</pre>
+      <p>Deberías ver un número de versión.</p>
+    `
+  },
+  {
+    id: 3,
+    title: "Instalar pnpm",
+    icon: "3",
+    content: `
+      <div class="info-box">
+        <h3>¿Qué es pnpm?</h3>
+        <p>pnpm es un administrador de paquetes más rápido y eficiente que npm.</p>
+      </div>
+      <pre>npm install -g pnpm</pre>
+      <div class="warning-box">
+        <h4>Solución de problemas</h4>
+        <p>Si aparece error de "permiso denegado", escribe primero:</p>
+        <pre>Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser</pre>
+        <p>Luego intenta instalar pnpm de nuevo.</p>
+      </div>
+      <pre>pnpm --version</pre>
+    `
+  },
+  {
+    id: 4,
+    title: "Instalar OpenCode",
+    icon: "4",
+    content: `
+      <div class="info-box">
+        <h3>¿Qué es OpenCode?</h3>
+        <p>OpenCode es una aplicación de código abierto que permite chatear con IA.</p>
+      </div>
+      <pre>pnpm install -g opencode-ai</pre>
+      <pre>opencode --version</pre>
+      <pre>opencode</pre>
+    `
+  },
+  {
+    id: 5,
+    title: "Conectar MiniMax.io como proveedor",
+    icon: "5",
+    content: `
+      <div class="info-box">
+        <h3>¿Qué es un proveedor?</h3>
+        <p>Un proveedor es el servicio de IA que OpenCode usa para generar respuestas.</p>
+      </div>
+      <h3>Paso 5.1: Ejecutar comando de conexión</h3>
+      <pre>/connect</pre>
+      <h3>Paso 5.2: Seleccionar MiniMax.io</h3>
+      <p>Selecciona <strong>"minimax.io"</strong> en la lista.</p>
+      <h3>Paso 5.3: Ingresar API Key</h3>
+      <p>Pega la key (empieza con <code>eyJ...</code>)</p>
+      <h3>Paso 5.4: Seleccionar modelo</h3>
+      <pre>/models</pre>
+      <p>Selecciona <strong>MiniMax-M2.7</strong> o <strong>MiniMax-M2.1</strong>.</p>
+    `
+  },
+  {
+    id: 6,
+    title: "Configurar credenciales globales en Windows",
+    icon: "6",
+    content: `
+      <div class="info-box">
+        <h3>¿Qué son las credenciales?</h3>
+        <p>Las credenciales son claves y tokens que permiten que OpenCode se conecte a Slack, Google Calendar y Google Sheets.</p>
+      </div>
+      <h3>Paso 6.1: Crear carpeta de configuración</h3>
+      <pre>mkdir -p "$env:USERPROFILE\.config\opencode"
+mkdir -p "$env:USERPROFILE\.config\opencode\scripts"</pre>
+      <h3>Paso 6.2: Configurar variables de entorno</h3>
+      <ol>
+        <li>Presiona <strong>Windows + R</strong></li>
+        <li>Escribe: <code>sysdm.cpl</code></li>
+        <li>Click en <strong>Environment Variables</strong></li>
+      </ol>
+      <h3>Paso 6.3: Agregar credenciales de Slack</h3>
+      <ul>
+        <li><code>SLACK_BOT_TOKEN</code> = tu token (xoxb-...)</li>
+        <li><code>SLACK_TEAM_ID</code> = tu Team ID (T...)</li>
+        <li><code>SLACK_APP_TOKEN</code> = tu App Token (xapp-...)</li>
+      </ul>
+      <h3>Paso 6.4: Agregar credenciales de Google</h3>
+      <ul>
+        <li><code>GOOGLE_OAUTH_CREDENTIALS</code> = C:\Users\TU_USUARIO\.config\opencode\google-calendar-credentials.json</li>
+        <li><code>GOOGLE_SERVICE_ACCOUNT_KEY_FILE</code> = C:\Users\TU_USUARIO\.config\opencode\google-sheets-service-account.json</li>
+      </ul>
+      <div class="warning-box">
+        <h4>IMPORTANTE:</h4>
+        <p>Cierra y reabre Windows Terminal para que los cambios se apliquen.</p>
+      </div>
+    `
+  },
+  {
+    id: 7,
+    title: "Crear Slack App",
+    icon: "7",
+    content: `
+      <div class="info-box">
+        <h3>¿Qué es una Slack App?</h3>
+        <p>Una Slack App permite que OpenCode se comunique con tu workspace de Slack.</p>
+      </div>
+      <h3>Paso 7.1: Crear la app</h3>
+      <ol>
+        <li>Ve a: <a href="https://api.slack.com/apps" target="_blank">https://api.slack.com/apps</a></li>
+        <li>Click en <strong>"Create New App"</strong></li>
+        <li>Selecciona <strong>"From scratch"</strong></li>
+        <li>Escribe: <code>MCP Server</code></li>
+        <li>Selecciona tu workspace</li>
+      </ol>
+      <h3>Paso 7.2: Agregar permisos</h3>
+      <p>Agrega estos scopes: channels:history, channels:read, chat:write, reactions:write, users:read, users.profile:read</p>
+      <h3>Paso 7.3: Instalar en workspace</h3>
+      <p>Click en <strong>"Install to Workspace"</strong> y luego <strong>"Allow"</strong>.</p>
+      <div class="warning-box">
+        <h4>IMPORTANTE:</h4>
+        <p>Guarda el Bot User OAuth Token y el Team ID.</p>
+      </div>
+      <h3>Paso 7.4: Habilitar Socket Mode</h3>
+      <p>Genera un App-Level Token con el scope connections:write.</p>
+      <h3>Paso 7.5: Suscribir a eventos</h3>
+      <p>Agrega: app_mention, message.channels, message.groups, message.im, message.mpim, reaction_added, reaction_removed</p>
+      <h3>Paso 7.6: Habilitar interactividad</h3>
+      <p>Activa Interactivity con cualquier URL HTTPS como Request URL.</p>
+    `
+  },
+  {
+    id: 8,
+    title: "Configurar GCP Project",
+    icon: "8",
+    content: `
+      <div class="info-box">
+        <h3>¿Qué es GCP?</h3>
+        <p>Google Cloud Platform es el servicio donde se configuran las APIs de Calendar y Sheets.</p>
+      </div>
+      <h3>Paso 8.1: Crear proyecto</h3>
+      <ol>
+        <li>Ve a: <a href="https://console.cloud.google.com/projectcreate" target="_blank">https://console.cloud.google.com/projectcreate</a></li>
+        <li>Escribe: <code>staytrue-mcp</code></li>
+        <li>Copia el Project ID</li>
+      </ol>
+      <h3>Paso 8.2: Habilitar Google Calendar API</h3>
+      <p><a href="https://console.cloud.google.com/flows/enableapi?apiid=calendar-json.googleapis.com" target="_blank">Habilitar Calendar API</a></p>
+      <h3>Paso 8.3: Habilitar Google Sheets API</h3>
+      <p><a href="https://console.cloud.google.com/flows/enableapi?apiid=sheets.googleapis.com" target="_blank">Habilitar Sheets API</a></p>
+    `
+  },
+  {
+    id: 9,
+    title: "Configurar Google Calendar MCP",
+    icon: "9",
+    content: `
+      <h3>Paso 9.1: Crear credenciales OAuth</h3>
+      <ol>
+        <li>Ve a: <a href="https://console.cloud.google.com/auth/clients/create" target="_blank">https://console.cloud.google.com/auth/clients/create</a></li>
+        <li>Selecciona <strong>"Desktop app"</strong></li>
+        <li>Escribe: <code>Calendar MCP Client</code></li>
+        <li>Download JSON y renombra a: <code>google-calendar-credentials.json</code></li>
+        <li>Mueve a: <code>C:\Users\TU_USUARIO\.config\opencode\</code></li>
+      </ol>
+      <h3>Paso 9.2: Configurar OAuth Consent</h3>
+      <ol>
+        <li>Ve a: <a href="https://console.cloud.google.com/auth/branding" target="_blank">https://console.cloud.google.com/auth/branding</a></li>
+        <li>Completa con nombre "Stay True MCP" y tu email</li>
+        <li>Selecciona "External"</li>
+        <li>Agrega scopes de calendar</li>
+      </ol>
+      <h3>Paso 9.3: Instalar MCP</h3>
+      <pre>pnpm add -g @cocal/google-calendar-mcp</pre>
+    `
+  },
+  {
+    id: 10,
+    title: "Configurar Google Sheets MCP",
+    icon: "10",
+    content: `
+      <h3>Paso 10.1: Crear Service Account</h3>
+      <ol>
+        <li>Ve a: <a href="https://console.cloud.google.com/iam-admin/serviceaccounts" target="_blank">https://console.cloud.google.com/iam-admin/serviceaccounts</a></li>
+        <li>Crea: <code>Sheets MCP Service Account</code></li>
+      </ol>
+      <h3>Paso 10.2: Crear clave JSON</h3>
+      <ol>
+        <li>Descarga clave JSON</li>
+        <li>Renombra a: <code>google-sheets-service-account.json</code></li>
+        <li>Mueve a: <code>C:\Users\TU_USUARIO\.config\opencode\</code></li>
+      </ol>
+      <h3>Paso 10.3: Copiar email del Service Account</h3>
+      <p>Busca en el JSON <code>"client_email"</code> y guarda el email.</p>
+      <h3>Paso 10.4: Compartir spreadsheets</h3>
+      <p>Comparte cada spreadsheet con el email del service account (Editor).</p>
+      <h3>Paso 10.5: Instalar MCP</h3>
+      <pre>pnpm add -g mcp-gsheets</pre>
+    `
+  },
+  {
+    id: 11,
+    title: "Crear opencode.jsonc global",
+    icon: "11",
+    content: `
+      <div class="info-box">
+        <h3>¿Qué es opencode.jsonc?</h3>
+        <p>Archivo de configuración que le dice a OpenCode cuáles MCP servers usar.</p>
+      </div>
+      <h3>Paso 11.1: Crear archivo</h3>
+      <pre class="code-block">{ "mcp": { "slack": { "type": "local", "command": ["npx", "-y", "@modelcontextprotocol/server-slack"], "enabled": true, "environment": { "SLACK_BOT_TOKEN": "$SLACK_BOT_TOKEN", "SLACK_TEAM_ID": "$SLACK_TEAM_ID" } } }, "google-calendar": { "type": "local", "command": ["npx", "-y", "@cocal/google-calendar-mcp"], "enabled": true }, "google-sheets": { "type": "local", "command": ["npx", "-y", "mcp-gsheets"], "enabled": true } } }</pre>
+      <h3>Paso 11.2: Guardar</h3>
+      <p>Guarda en: <code>C:\Users\TU_USUARIO\.config\opencode\opencode.jsonc</code></p>
+      <h3>Paso 11.3: Verificar</h3>
+      <pre>opencode mcp list</pre>
+    `
+  },
+  {
+    id: 12,
+    title: "Configurar AGENTS.md",
+    icon: "12",
+    content: `
+      <div class="info-box">
+        <h3>¿Qué es AGENTS.md?</h3>
+        <p>Archivo que indica al AI agent qué herramientas tiene disponibles.</p>
+      </div>
+      <h3>Paso 12.1: Crear archivo</h3>
+      <pre class="code-block">## MCP Servers Disponibles
+
+### Slack (slack_*)
+- slack_list_channels, slack_post_message, slack_reply_to_thread
+- slack_add_reaction, slack_get_channel_history
+- slack_get_users, slack_get_user_profile
+
+### Google Calendar (calendar_*)
+- list-calendars, list-events, search-events
+- create-event, update-event, delete-event
+- get-freebusy, respond-to-event
+
+### Google Sheets (sheets_*)
+- sheets_get_values, sheets_batch_get_values
+- sheets_update_values, sheets_batch_update_values
+- sheets_append_values, sheets_create_spreadsheet
+- sheets_insert_sheet, sheets_delete_sheet
+- sheets_format_cells, sheets_get_metadata
+
+## Notas importantes
+- Para Meet links en Calendar, el MCP no los genera automáticamente
+- Siempre confirmar antes de ejecutar acciones destructivas (delete)
+- Para Sheets, verificar que el spreadsheet esté compartido con el service account</pre>
+      <h3>Paso 12.2: Guardar</h3>
+      <p>Guarda en: <code>C:\laragon\www\staytrue\AGENTS.md</code></p>
+    `
+  },
+  {
+    id: 13,
+    title: "Verificación final",
+    icon: "13",
+    content: `
+      <h3>Paso 13.1: Probar OpenCode</h3>
+      <pre>opencode --version</pre>
+      <h3>Paso 13.2: Probar conexión MiniMax</h3>
+      <pre>/models</pre>
+      <p>Deberías ver MiniMax-M2.7 o MiniMax-M2.1.</p>
+      <h3>Paso 13.3: Probar MCP servers</h3>
+      <pre>/mcp list</pre>
+      <p>Deberías ver: slack, google-calendar, google-sheets</p>
+      <h3>Paso 13.4: Primeras pruebas</h3>
+      <p>Prueba enviar mensaje en Slack:</p>
+      <pre>Usa el MCP de slack para enviar "Hola mundo" al canal #general</pre>
+      <p>Prueba crear un evento:</p>
+      <pre>Usa el MCP de google-calendar para crear un evento "Reunión de prueba" para mañana a las 3pm</pre>
+    `
+  },
+  {
+    id: 14,
+    title: "Scripts de verificación",
+    icon: "14",
+    content: `
+      <div class="info-box">
+        <h3>¿Qué son los scripts?</h3>
+        <p>Programas pequeños que verifican si las credenciales están configuradas.</p>
+      </div>
+      <h3>Ubicación</h3>
+      <p><code>C:\Users\TU_USUARIO\.config\opencode\scripts\</code></p>
+      <h3>verify-all.ps1</h3>
+      <pre class="code-block"># verify-all.ps1
+Write-Host "=== Verificando configuración ==="
+& "$PSScriptRoot\verify-slack.ps1"
+& "$PSScriptRoot\verify-gcal.ps1"
+& "$PSScriptRoot\verify-sheets.ps1"</pre>
+      <h3>verify-slack.ps1</h3>
+      <pre class="code-block"># verify-slack.ps1
+$token = [Environment]::GetEnvironmentVariable("SLACK_BOT_TOKEN", "User")
+$teamId = [Environment]::GetEnvironmentVariable("SLACK_TEAM_ID", "User")
+if (-not $token -or -not $teamId) { Write-Host "[ERROR]" -ForegroundColor Red; return }
+$response = Invoke-RestMethod -Uri "https://slack.com/api/auth.test" -Headers @{ Authorization = "Bearer $token" }
+if ($response.ok) { Write-Host "[OK] Slack conectado" -ForegroundColor Green } else { Write-Host "[ERROR]" -ForegroundColor Red }</pre>
+      <h3>verify-gcal.ps1</h3>
+      <pre class="code-block"># verify-gcal.ps1
+$credsPath = [Environment]::GetEnvironmentVariable("GOOGLE_OAUTH_CREDENTIALS", "User")
+if (-not $credsPath -or -not (Test-Path $credsPath)) { Write-Host "[ERROR]" -ForegroundColor Red; return }
+Write-Host "[OK] google-calendar-credentials.json encontrado" -ForegroundColor Green</pre>
+      <h3>verify-sheets.ps1</h3>
+      <pre class="code-block"># verify-sheets.ps1
+$keyPath = [Environment]::GetEnvironmentVariable("GOOGLE_SERVICE_ACCOUNT_KEY_FILE", "User")
+if (-not $keyPath -or -not (Test-Path $keyPath)) { Write-Host "[ERROR]" -ForegroundColor Red; return }
+$json = Get-Content $keyPath | ConvertFrom-Json
+Write-Host "[OK] Service Account: $($json.client_email)" -ForegroundColor Green</pre>
+      <h3>Ejecutar</h3>
+      <pre>cd $env:USERPROFILE\.config\opencode\scripts
+.\verify-all.ps1</pre>
+    `
+  }
+];
+---
+
+<div class="steps-container" id="stepsContainer"></div>
+
+<script define:vars={{ stepsData }}>
+  const container = document.getElementById('stepsContainer');
+  stepsData.forEach(step => {
+    const section = document.createElement('section');
+    section.className = 'step';
+    section.dataset.step = step.id;
+    section.innerHTML = `
+      <div class="step-header">
+        <div class="step-icon">${step.icon}</div>
+        <div class="step-info">
+          <span class="step-label">Paso ${step.id}</span>
+          <h2>${step.title}</h2>
+        </div>
+      </div>
+      <div class="step-content">${step.content}</div>
+    `;
+    container.appendChild(section);
+  });
+</script>
+
+<style>
+  .steps-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .step {
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+  }
+
+  .step:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  }
+
+  .step-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+    color: white;
+  }
+
+  .step-icon {
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+  }
+
+  .step-info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .step-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 0.9;
+    display: block;
+  }
+
+  .step-info h2 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-top: 0.125rem;
+    color: white;
+  }
+
+  .step-content {
+    padding: 1.5rem;
+  }
+
+  .step-content h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 1.25rem;
+    margin-bottom: 0.75rem;
+    color: #1e293b;
+  }
+
+  .step-content h3:first-child {
+    margin-top: 0;
+  }
+
+  .step-content p {
+    margin-bottom: 0.75rem;
+    color: #64748b;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .step-content ol,
+  .step-content ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .step-content li {
+    margin-bottom: 0.5rem;
+    color: #64748b;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .info-box {
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    border: 1px solid #bae6fd;
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .info-box h3 {
+    margin-top: 0;
+    color: #0369a1;
+    font-size: 0.9rem;
+  }
+
+  .info-box p {
+    margin-bottom: 0;
+    color: #0c4a6e;
+  }
+
+  .warning-box {
+    background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+    border: 1px solid #fcd34d;
+    border-radius: 12px;
+    padding: 1rem;
+    margin: 1rem 0;
+  }
+
+  .warning-box h4 {
+    margin-top: 0;
+    color: #b45309;
+    font-size: 0.9rem;
+  }
+
+  .warning-box p {
+    margin-bottom: 0;
+    color: #92400e;
+  }
+
+  .step-content a {
+    color: #6366f1;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.15s ease;
+  }
+
+  .step-content a:hover {
+    color: #4f46e5;
+    text-decoration: underline;
+  }
+
+  .code-block {
+    display: block;
+  }
+
+  @media (max-width: 640px) {
+    .step-header {
+      padding: 1rem;
+    }
+
+    .step-icon {
+      width: 2.5rem;
+      height: 2.5rem;
+      font-size: 1rem;
+    }
+
+    .step-info h2 {
+      font-size: 1rem;
+    }
+
+    .step-content {
+      padding: 1rem;
+    }
+  }
+</style>

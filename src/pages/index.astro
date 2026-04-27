@@ -1,0 +1,340 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Steps from '../components/Steps.astro';
+---
+
+<Layout title="Guía de Instalación - OpenCode + MiniMax.io + Slack + Google Calendar/Sheets">
+  <main class="container">
+    <header class="header">
+      <div class="header-content">
+        <h1>Guía de Instalación</h1>
+        <p class="subtitle">OpenCode + MiniMax.io + Slack + Google Calendar/Sheets</p>
+        <p class="description">Sigue los 14 pasos para configurar tu entorno de trabajo con IA.</p>
+      </div>
+      <div class="progress-container">
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <span class="progress-text" id="progressText">Paso 1 de 14</span>
+      </div>
+    </header>
+
+    <div class="steps-wrapper" id="stepsWrapper">
+      <Steps />
+    </div>
+
+    <nav class="navigation">
+      <button class="btn btn-secondary" id="prevBtn" disabled>
+        <span class="btn-icon">←</span>
+        Anterior
+      </button>
+      <div class="step-indicator" id="stepIndicator">1 / 14</div>
+      <button class="btn btn-primary" id="nextBtn">
+        Siguiente
+        <span class="btn-icon">→</span>
+      </button>
+    </nav>
+  </main>
+</Layout>
+
+<script>
+  const STORAGE_KEY = 'integration-guide-progress';
+
+  interface Progress {
+    currentStep: number;
+    completedSteps: number[];
+  }
+
+  function getProgress(): Progress {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (stored) {
+      try {
+        return JSON.parse(stored);
+      } catch {
+        return { currentStep: 1, completedSteps: [] };
+      }
+    }
+    return { currentStep: 1, completedSteps: [] };
+  }
+
+  function saveProgress(progress: Progress): void {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+  }
+
+  function showStep(stepNumber: number): void {
+    const steps = document.querySelectorAll('.step');
+    steps.forEach((step, index) => {
+      const stepEl = step as HTMLElement;
+      const currentStepNum = index + 1;
+      if (currentStepNum === stepNumber) {
+        stepEl.style.display = 'block';
+        stepEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        stepEl.style.display = 'none';
+      }
+    });
+    updateProgress(stepNumber);
+  }
+
+  function updateProgress(stepNumber: number): void {
+    const totalSteps = 14;
+    const progress = getProgress();
+    progress.currentStep = stepNumber;
+    saveProgress(progress);
+
+    const progressFill = document.getElementById('progressFill');
+    const progressText = document.getElementById('progressText');
+    const stepIndicator = document.getElementById('stepIndicator');
+    const prevBtn = document.getElementById('prevBtn') as HTMLButtonElement;
+    const nextBtn = document.getElementById('nextBtn') as HTMLButtonElement;
+
+    if (progressFill) {
+      const percentage = ((stepNumber - 1) / (totalSteps - 1)) * 100;
+      progressFill.style.width = `${percentage}%`;
+    }
+
+    if (progressText) {
+      progressText.textContent = `Paso ${stepNumber} de ${totalSteps}`;
+    }
+
+    if (stepIndicator) {
+      stepIndicator.textContent = `${stepNumber} / ${totalSteps}`;
+    }
+
+    if (prevBtn) {
+      prevBtn.disabled = stepNumber <= 1;
+    }
+
+    if (nextBtn) {
+      nextBtn.disabled = stepNumber >= totalSteps;
+      nextBtn.textContent = stepNumber >= totalSteps ? 'Completado' : 'Siguiente';
+    }
+
+    updateButtonsStyle();
+  }
+
+  function updateButtonsStyle(): void {
+    const progress = getProgress();
+    const nextBtn = document.getElementById('nextBtn');
+    if (nextBtn && progress.currentStep >= 14) {
+      nextBtn.classList.add('btn-success');
+      nextBtn.classList.remove('btn-primary');
+    }
+  }
+
+  function goToStep(stepNumber: number): void {
+    if (stepNumber >= 1 && stepNumber <= 14) {
+      showStep(stepNumber);
+    }
+  }
+
+  function init(): void {
+    const progress = getProgress();
+    showStep(progress.currentStep);
+
+    document.getElementById('prevBtn')?.addEventListener('click', () => {
+      const progress = getProgress();
+      goToStep(progress.currentStep - 1);
+    });
+
+    document.getElementById('nextBtn')?.addEventListener('click', () => {
+      const progress = getProgress();
+      const newStep = Math.min(progress.currentStep + 1, 14);
+      goToStep(newStep);
+    });
+
+    document.addEventListener('keydown', (e: KeyboardEvent) => {
+      if (e.key === 'ArrowLeft') {
+        const progress = getProgress();
+        if (progress.currentStep > 1) {
+          goToStep(progress.currentStep - 1);
+        }
+      } else if (e.key === 'ArrowRight') {
+        const progress = getProgress();
+        if (progress.currentStep < 14) {
+          goToStep(progress.currentStep + 1);
+        }
+      }
+    });
+
+    const steps = document.querySelectorAll('.step');
+    steps.forEach((step, index) => {
+      const stepEl = step as HTMLElement;
+      const stepNumber = index + 1;
+      if (stepNumber !== getProgress().currentStep) {
+        stepEl.style.display = 'none';
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', init);
+</script>
+
+<style>
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+
+  .header {
+    margin-bottom: 2rem;
+  }
+
+  .header-content {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+
+  .subtitle {
+    font-size: 1.125rem;
+    color: var(--color-primary);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .description {
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+  }
+
+  .progress-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    background: var(--color-card);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .progress-bar {
+    flex: 1;
+    height: 8px;
+    background: var(--color-border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    border-radius: 4px;
+    transition: width 0.3s ease;
+    width: 0%;
+  }
+
+  .progress-text {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text-light);
+    white-space: nowrap;
+  }
+
+  .steps-wrapper {
+    margin-bottom: 2rem;
+  }
+
+  .navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    position: sticky;
+    bottom: 1rem;
+    padding: 1rem;
+    background: var(--color-card);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    color: white;
+  }
+
+  .btn-primary:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .btn-secondary {
+    background: var(--color-bg);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+  }
+
+  .btn-secondary:hover:not(:disabled) {
+    background: var(--color-border);
+  }
+
+  .btn-success {
+    background: linear-gradient(135deg, var(--color-success) 0%, #059669 100%);
+    color: white;
+  }
+
+  .btn-icon {
+    font-size: 1rem;
+  }
+
+  .step-indicator {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-text-light);
+    padding: 0.5rem 1rem;
+    background: var(--color-bg);
+    border-radius: var(--radius-md);
+  }
+
+  @media (max-width: 640px) {
+    .container {
+      padding: 1rem;
+    }
+
+    .header h1 {
+      font-size: 1.5rem;
+    }
+
+    .progress-container {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.5rem;
+    }
+
+    .navigation {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .step-indicator {
+      order: -1;
+      width: 100%;
+      text-align: center;
+    }
+  }
+</style>

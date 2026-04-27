@@ -75,7 +75,7 @@ const stepsData = [
         </li>
       </ol>
 
-      <div class="p-4 bg-slate-900 rounded-xl">
+      <div class="p-4 bg-slate-900 dark:bg-slate-800 rounded-xl">
         <p class="text-sm text-slate-400 dark:text-slate-500 mb-2">Verás algo como:</p>
         <code class="text-emerald-400 font-mono text-sm">PS C:\\Users\\TU_USUARIO&gt;</code>
       </div>
@@ -117,11 +117,11 @@ const stepsData = [
 
       <h3 class="text-base font-semibold text-slate-800 dark:text-slate-200 mb-3">Verificar instalación</h3>
       <div class="space-y-3">
-        <div class="p-3 bg-slate-900 rounded-lg">
+        <div class="p-3 bg-slate-900 dark:bg-slate-800 rounded-lg">
           <code class="text-emerald-400 font-mono text-sm">node --version</code>
         </div>
         <p class="text-sm text-slate-600 dark:text-slate-400">Deberías ver algo como <code class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-700 rounded text-slate-700 dark:text-slate-300 font-mono text-xs">v20.18.0</code></p>
-        <div class="p-3 bg-slate-900 rounded-lg">
+        <div class="p-3 bg-slate-900 dark:bg-slate-800 rounded-lg">
           <code class="text-emerald-400 font-mono text-sm">npm --version</code>
         </div>
       </div>
@@ -145,7 +145,7 @@ const stepsData = [
         </div>
       </div>
 
-      <div class="p-3 bg-slate-900 rounded-lg mb-4">
+      <div class="p-3 bg-slate-900 dark:bg-slate-800 rounded-lg mb-4">
         <code class="text-emerald-400 font-mono text-sm">npm install -g pnpm</code>
       </div>
 
@@ -164,7 +164,7 @@ const stepsData = [
         </div>
       </div>
 
-      <div class="p-3 bg-slate-900 rounded-lg">
+      <div class="p-3 bg-slate-900 dark:bg-slate-800 rounded-lg">
         <code class="text-emerald-400 font-mono text-sm">pnpm --version</code>
       </div>
     `
@@ -188,20 +188,20 @@ const stepsData = [
       </div>
 
       <h3 class="text-base font-semibold text-slate-800 dark:text-slate-200 mb-3">Instalar OpenCode</h3>
-      <div class="p-3 bg-slate-900 rounded-lg mb-4">
+      <div class="p-3 bg-slate-900 dark:bg-slate-800 rounded-lg mb-4">
         <code class="text-emerald-400 font-mono text-sm">pnpm install -g opencode-ai</code>
       </div>
 
       <h3 class="text-base font-semibold text-slate-800 dark:text-slate-200 mb-3">Verificar</h3>
       <div class="space-y-3">
-        <div class="p-3 bg-slate-900 rounded-lg">
+        <div class="p-3 bg-slate-900 dark:bg-slate-800 rounded-lg">
           <code class="text-emerald-400 font-mono text-sm">opencode --version</code>
         </div>
         <p class="text-sm text-slate-600 dark:text-slate-400">Si ves un número de versión, ¡la instalación fue exitosa!</p>
       </div>
 
       <h3 class="text-base font-semibold text-slate-800 dark:text-slate-200 mb-3 mt-6">Abrir OpenCode</h3>
-      <div class="p-3 bg-slate-900 rounded-lg">
+      <div class="p-3 bg-slate-900 dark:bg-slate-800 rounded-lg">
         <code class="text-emerald-400 font-mono text-sm">opencode</code>
       </div>
     `
@@ -226,12 +226,12 @@ const stepsData = [
 
       <h3 class="text-base font-semibold text-slate-800 dark:text-slate-200 mb-3">Conectar</h3>
       <div class="space-y-4">
-        <div class="p-3 bg-slate-900 rounded-lg">
+        <div class="p-3 bg-slate-900 dark:bg-slate-800 rounded-lg">
           <code class="text-emerald-400 font-mono text-sm">/connect</code>
         </div>
         <p class="text-sm text-slate-600 dark:text-slate-400">Selecciona <strong class="text-slate-800 dark:text-slate-200">"minimax.io"</strong> en la lista de proveedores.</p>
 
-        <div class="p-3 bg-slate-900 rounded-lg">
+        <div class="p-3 bg-slate-900 dark:bg-slate-800 rounded-lg">
           <code class="text-emerald-400 font-mono text-sm">/models</code>
         </div>
         <p class="text-sm text-slate-600 dark:text-slate-400">Busca y selecciona <strong class="text-slate-800 dark:text-slate-200">MiniMax-M2.7</strong> o <strong class="text-slate-800 dark:text-slate-200">MiniMax-M2.1</strong>.</p>
@@ -257,7 +257,7 @@ const stepsData = [
       </div>
 
       <h3 class="text-base font-semibold text-slate-800 dark:text-slate-200 mb-3">Crear carpeta de configuración</h3>
-      <div class="p-3 bg-slate-900 rounded-lg mb-6">
+      <div class="p-3 bg-slate-900 dark:bg-slate-800 rounded-lg mb-6">
         <code class="text-emerald-400 font-mono text-sm">mkdir -p "$env:USERPROFILE\\.config\\opencode"</code>
       </div>
 
@@ -452,7 +452,7 @@ const stepsData = [
       </ol>
 
       <h3 class="text-base font-semibold text-slate-800 dark:text-slate-200 mb-3">Instalar MCP</h3>
-      <div class="p-3 bg-slate-900 rounded-lg">
+      <div class="p-3 bg-slate-900 dark:bg-slate-800 rounded-lg">
         <code class="text-emerald-400 font-mono text-sm">pnpm add -g @cocal/google-calendar-mcp</code>
       </div>
     `
@@ -493,7 +493,7 @@ const stepsData = [
       <p class="text-sm text-slate-600 dark:text-slate-400 mb-4">Comparte cada spreadsheet con el email del service account (Editor).</p>
 
       <h3 class="text-base font-semibold text-slate-800 dark:text-slate-200 mb-3">Instalar MCP</h3>
-      <div class="p-3 bg-slate-900 rounded-lg">
+      <div class="p-3 bg-slate-900 dark:bg-slate-800 rounded-lg">
         <code class="text-emerald-400 font-mono text-sm">pnpm add -g mcp-gsheets</code>
       </div>
     `
@@ -517,7 +517,7 @@ const stepsData = [
       </div>
 
       <h3 class="text-base font-semibold text-slate-800 dark:text-slate-200 mb-3">Crear archivo</h3>
-      <div class="p-4 bg-slate-900 rounded-xl overflow-x-auto mb-6">
+      <div class="p-4 bg-slate-900 dark:bg-slate-800 rounded-xl overflow-x-auto mb-6">
         <pre class="text-sm font-mono text-slate-300 whitespace-pre-wrap">{ "mcp": { "slack": { "type": "local", "command": ["npx", "-y", "@modelcontextprotocol/server-slack"], "enabled": true, "environment": { "SLACK_BOT_TOKEN": "$SLACK_BOT_TOKEN", "SLACK_TEAM_ID": "$SLACK_TEAM_ID" } } }, "google-calendar": { "type": "local", "command": ["npx", "-y", "@cocal/google-calendar-mcp"], "enabled": true }, "google-sheets": { "type": "local", "command": ["npx", "-y", "mcp-gsheets"], "enabled": true } } }</pre>
       </div>
 
@@ -525,7 +525,7 @@ const stepsData = [
       <p class="text-sm text-slate-600 dark:text-slate-400 mb-4">Guarda en: <code class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-700 rounded text-slate-700 dark:text-slate-300 font-mono text-xs">C:\\Users\\TU_USUARIO\\.config\\opencode\\opencode.jsonc</code></p>
 
       <h3 class="text-base font-semibold text-slate-800 dark:text-slate-200 mb-3">Verificar</h3>
-      <div class="p-3 bg-slate-900 rounded-lg">
+      <div class="p-3 bg-slate-900 dark:bg-slate-800 rounded-lg">
         <code class="text-emerald-400 font-mono text-sm">opencode mcp list</code>
       </div>
     `
@@ -549,7 +549,7 @@ const stepsData = [
       </div>
 
       <h3 class="text-base font-semibold text-slate-800 dark:text-slate-200 mb-3">Crear archivo</h3>
-      <div class="p-4 bg-slate-900 rounded-xl overflow-x-auto mb-6">
+      <div class="p-4 bg-slate-900 dark:bg-slate-800 rounded-xl overflow-x-auto mb-6">
         <pre class="text-sm font-mono text-slate-300 whitespace-pre-wrap">## MCP Servers Disponibles
 
 ### Slack (slack_*)
@@ -579,13 +579,13 @@ const stepsData = [
     title: "Verificación final",
     content: `
       <h3 class="text-base font-semibold text-slate-800 dark:text-slate-200 mb-3">Probar OpenCode</h3>
-      <div class="p-3 bg-slate-900 rounded-lg mb-6">
+      <div class="p-3 bg-slate-900 dark:bg-slate-800 rounded-lg mb-6">
         <code class="text-emerald-400 font-mono text-sm">opencode --version</code>
       </div>
 
       <h3 class="text-base font-semibold text-slate-800 dark:text-slate-200 mb-3">Probar conexión MiniMax</h3>
       <div class="space-y-3 mb-6">
-        <div class="p-3 bg-slate-900 rounded-lg">
+        <div class="p-3 bg-slate-900 dark:bg-slate-800 rounded-lg">
           <code class="text-emerald-400 font-mono text-sm">/models</code>
         </div>
         <p class="text-sm text-slate-600 dark:text-slate-400">Deberías ver MiniMax-M2.7 o MiniMax-M2.1.</p>
@@ -593,7 +593,7 @@ const stepsData = [
 
       <h3 class="text-base font-semibold text-slate-800 dark:text-slate-200 mb-3">Probar MCP servers</h3>
       <div class="space-y-3 mb-6">
-        <div class="p-3 bg-slate-900 rounded-lg">
+        <div class="p-3 bg-slate-900 dark:bg-slate-800 rounded-lg">
           <code class="text-emerald-400 font-mono text-sm">/mcp list</code>
         </div>
         <p class="text-sm text-slate-600 dark:text-slate-400">Deberías ver: slack, google-calendar, google-sheets</p>
@@ -628,7 +628,7 @@ const stepsData = [
       <p class="text-sm text-slate-600 dark:text-slate-400 mb-6"><code class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-700 rounded text-slate-700 dark:text-slate-300 font-mono text-xs">C:\\Users\\TU_USUARIO\\.config\\opencode\\scripts\\</code></p>
 
       <h3 class="text-base font-semibold text-slate-800 dark:text-slate-200 mb-3">verify-all.ps1</h3>
-      <div class="p-4 bg-slate-900 rounded-xl overflow-x-auto mb-6">
+      <div class="p-4 bg-slate-900 dark:bg-slate-800 rounded-xl overflow-x-auto mb-6">
         <pre class="text-sm font-mono text-slate-300"># verify-all.ps1
 Write-Host "=== Verificando configuracion ==="
 & "$PSScriptRoot\\verify-slack.ps1"
@@ -637,7 +637,7 @@ Write-Host "=== Verificando configuracion ==="
       </div>
 
       <h3 class="text-base font-semibold text-slate-800 dark:text-slate-200 mb-3">Ejecutar</h3>
-      <div class="p-4 bg-slate-900 rounded-xl overflow-x-auto">
+      <div class="p-4 bg-slate-900 dark:bg-slate-800 rounded-xl overflow-x-auto">
         <pre class="text-sm font-mono text-slate-300">cd $env:USERPROFILE\.config\opencode\scripts
 .\verify-all.ps1</pre>
       </div>

@@ -1,6 +1,214 @@
 ﻿---
 const stepsData = [
   {
+    id: 0,
+    title: "Antes de empezar",
+    isPrerequisite: true,
+    content: `
+      <div class="mb-6 p-5 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl text-white">
+        <div class="flex items-start gap-3">
+          <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center">
+            <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-bold text-lg mb-1">Lo que necesitas antes de comenzar</h3>
+            <p class="text-white/90 text-sm">Asegúrate de tener todo esto listo para evitar problemas durante la instalación.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid gap-4 md:grid-cols-2">
+        <div class="p-4 bg-slate-100 dark:bg-slate-800 rounded-xl">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-8 h-8 rounded-lg bg-emerald-100 dark:bg-emerald-900/50 flex items-center justify-center">
+              <svg class="w-4 h-4 text-emerald-600 dark:text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <h4 class="font-semibold text-slate-800 dark:text-slate-200">Cuenta de MiniMax.io</h4>
+          </div>
+          <ul class="text-sm text-slate-600 dark:text-slate-400 space-y-1">
+            <li>• API Key lista (empieza con <code class="px-1 py-0.5 bg-slate-200 dark:bg-slate-700 rounded text-xs">eyJ...</code>)</li>
+            <li>• Creditos disponibles</li>
+          </ul>
+        </div>
+
+        <div class="p-4 bg-slate-100 dark:bg-slate-800 rounded-xl">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-8 h-8 rounded-lg bg-purple-100 dark:bg-purple-900/50 flex items-center justify-center">
+              <svg class="w-4 h-4 text-purple-600 dark:text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14" />
+              </svg>
+            </div>
+            <h4 class="font-semibold text-slate-800 dark:text-slate-200">Workspace de Slack</h4>
+          </div>
+          <ul class="text-sm text-slate-600 dark:text-slate-400 space-y-1">
+            <li>• Acceso de admin para crear apps</li>
+            <li>• Capacidad de instalar apps</li>
+          </ul>
+        </div>
+
+        <div class="p-4 bg-slate-100 dark:bg-slate-800 rounded-xl">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-8 h-8 rounded-lg bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center">
+              <svg class="w-4 h-4 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+              </svg>
+            </div>
+            <h4 class="font-semibold text-slate-800 dark:text-slate-200">Cuenta de Google</h4>
+          </div>
+          <ul class="text-sm text-slate-600 dark:text-slate-400 space-y-1">
+            <li>• Acceso a Google Cloud Console</li>
+            <li>• Spreadsheets compartidos (para Sheets)</li>
+          </ul>
+        </div>
+
+        <div class="p-4 bg-slate-100 dark:bg-slate-800 rounded-xl">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-8 h-8 rounded-lg bg-amber-100 dark:bg-amber-900/50 flex items-center justify-center">
+              <svg class="w-4 h-4 text-amber-600 dark:text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <h4 class="font-semibold text-slate-800 dark:text-slate-200">Windows 10 o 11</h4>
+          </div>
+          <ul class="text-sm text-slate-600 dark:text-slate-400 space-y-1">
+            <li>• Permisos de administrador</li>
+            <li>• Conexión a internet</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-6 p-4 bg-amber-50 dark:bg-amber-900/30 border border-amber-200 dark:border-amber-800 rounded-xl">
+        <div class="flex items-start gap-3">
+          <div class="flex-shrink-0 w-8 h-8 rounded-lg bg-amber-100 dark:bg-amber-900/50 flex items-center justify-center">
+            <svg class="w-4 h-4 text-amber-600 dark:text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <div>
+            <h4 class="font-semibold text-amber-900 dark:text-amber-300 text-sm mb-1">Tiempo estimado</h4>
+            <p class="text-amber-800 dark:text-amber-300 text-sm">La instalación completa toma aproximadamente <strong>30-45 minutos</strong>. Asegúrate de tener suficiente tiempo antes de comenzar.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-6 p-4 bg-emerald-50 dark:bg-emerald-900/30 border border-emerald-200 dark:border-emerald-800 rounded-xl">
+        <div class="flex items-start gap-3">
+          <div class="flex-shrink-0 w-8 h-8 rounded-lg bg-emerald-100 dark:bg-emerald-900/50 flex items-center justify-center">
+            <svg class="w-4 h-4 text-emerald-600 dark:text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <div>
+            <h4 class="font-semibold text-emerald-900 dark:text-emerald-300 text-sm mb-1">¿Dónde encontrar tus tokens?</h4>
+            <div class="text-emerald-800 dark:text-emerald-300 text-sm space-y-2 mt-2">
+              <div>
+                <strong>MiniMax API Key:</strong> Panel de MiniMax.io → API Keys
+              </div>
+              <div>
+                <strong>Slack Tokens:</strong> api.slack.com/apps → Tu App → OAuth & Permissions / Socket Mode
+              </div>
+              <div>
+                <strong>Google:</strong> console.cloud.google.com → APIs & Services → Credentials
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    `
+  },
+  {
+    id: 0,
+    title: "Glosario de términos",
+    isGlossary: true,
+    content: `
+      <div class="space-y-4">
+        <div class="p-4 bg-slate-100 dark:bg-slate-800 rounded-xl">
+          <h4 class="font-semibold text-slate-800 dark:text-slate-200 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-300 text-xs flex items-center justify-center">1</span>
+            PowerShell / Terminal
+          </h4>
+          <p class="text-slate-600 dark:text-slate-400 text-sm">Programa donde escribes comandos de texto. En Windows 11 ya viene instalado Windows Terminal.</p>
+        </div>
+
+        <div class="p-4 bg-slate-100 dark:bg-slate-800 rounded-xl">
+          <h4 class="font-semibold text-slate-800 dark:text-slate-200 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-300 text-xs flex items-center justify-center">2</span>
+            Node.js
+          </h4>
+          <p class="text-slate-600 dark:text-slate-400 text-sm">Programa que permite ejecutar código JavaScript. Necesario para OpenCode.</p>
+        </div>
+
+        <div class="p-4 bg-slate-100 dark:bg-slate-800 rounded-xl">
+          <h4 class="font-semibold text-slate-800 dark:text-slate-200 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-300 text-xs flex items-center justify-center">3</span>
+            pnpm
+          </h4>
+          <p class="text-slate-600 dark:text-slate-400 text-sm">Herramienta para instalar programas. Similar a npm pero más rápida.</p>
+        </div>
+
+        <div class="p-4 bg-slate-100 dark:bg-slate-800 rounded-xl">
+          <h4 class="font-semibold text-slate-800 dark:text-slate-200 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-300 text-xs flex items-center justify-center">4</span>
+            Variable de entorno
+          </h4>
+          <p class="text-slate-600 dark:text-slate-400 text-sm">Guarda información persistente en Windows. Se usa para guardar tokens y contraseñas de forma segura.</p>
+        </div>
+
+        <div class="p-4 bg-slate-100 dark:bg-slate-800 rounded-xl">
+          <h4 class="font-semibold text-slate-800 dark:text-slate-200 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-300 text-xs flex items-center justify-center">5</span>
+            Token / API Key
+          </h4>
+          <p class="text-slate-600 dark:text-slate-400 text-sm">Contraseña especial que identifica tu cuenta. Comienza con xoxb-, xapp-, eyJ... según el servicio.</p>
+        </div>
+
+        <div class="p-4 bg-slate-100 dark:bg-slate-800 rounded-xl">
+          <h4 class="font-semibold text-slate-800 dark:text-slate-200 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-300 text-xs flex items-center justify-center">6</span>
+            MCP (Model Context Protocol)
+          </h4>
+          <p class="text-slate-600 dark:text-slate-400 text-sm">Sistema que permite a OpenCode conectarse con herramientas externas como Slack y Google.</p>
+        </div>
+
+        <div class="p-4 bg-slate-100 dark:bg-slate-800 rounded-xl">
+          <h4 class="font-semibold text-slate-800 dark:text-slate-200 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-300 text-xs flex items-center justify-center">7</span>
+            GCP (Google Cloud Platform)
+          </h4>
+          <p class="text-slate-600 dark:text-slate-400 text-sm">Plataforma de Google donde se configuran las APIs de Calendar y Sheets.</p>
+        </div>
+
+        <div class="p-4 bg-slate-100 dark:bg-slate-800 rounded-xl">
+          <h4 class="font-semibold text-slate-800 dark:text-slate-200 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-300 text-xs flex items-center justify-center">8</span>
+            Service Account
+          </h4>
+          <p class="text-slate-600 dark:text-slate-400 text-sm">Cuenta especial de Google para que programas accedan a Sheets automáticamente.</p>
+        </div>
+
+        <div class="p-4 bg-slate-100 dark:bg-slate-800 rounded-xl">
+          <h4 class="font-semibold text-slate-800 dark:text-slate-200 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-300 text-xs flex items-center justify-center">9</span>
+            Socket Mode
+          </h4>
+          <p class="text-slate-600 dark:text-slate-400 text-sm">Método de conexión de Slack que usa WebSockets en lugar de HTTP. Permite recibir eventos en tiempo real.</p>
+        </div>
+
+        <div class="p-4 bg-slate-100 dark:bg-slate-800 rounded-xl">
+          <h4 class="font-semibold text-slate-800 dark:text-slate-200 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-300 text-xs flex items-center justify-center">10</span>
+            OAuth / Consent Screen
+          </h4>
+          <p class="text-slate-600 dark:text-slate-400 text-sm">Pantalla donde autorizas que una aplicación acceda a tu cuenta de Google.</p>
+        </div>
+      </div>
+    `
+  },
+  {
     id: 1,
     title: "Instalar Windows Terminal y PowerShell",
     content: `
@@ -77,7 +285,7 @@ const stepsData = [
 
       <div class="p-4 bg-slate-900 dark:bg-slate-800 rounded-xl">
         <p class="text-sm text-slate-400 dark:text-slate-500 mb-2">Verás algo como:</p>
-        <code class="text-emerald-400 font-mono text-sm">PS C:\\Users\\TU_USUARIO&gt;</code>
+        <code class="text-emerald-400 font-mono text-sm">PS C:\Users\TuNombre&gt;</code>
       </div>
     `
   },
@@ -137,7 +345,7 @@ const stepsData = [
 
       <div class="p-4 bg-slate-900 dark:bg-slate-800 rounded-xl mb-6">
         <p class="text-sm text-slate-400 dark:text-slate-500 mb-2">Verás algo como:</p>
-        <code class="text-emerald-400 font-mono text-sm">PS C:\\Users\\TU_USUARIO&gt;</code>
+        <code class="text-emerald-400 font-mono text-sm">PS C:\Users\TuNombre&gt;</code>
       </div>
 
       <div class="p-4 bg-amber-50 dark:bg-amber-900/30 border border-amber-200 dark:border-amber-800 rounded-xl mb-6">
@@ -300,21 +508,47 @@ const stepsData = [
         <code class="text-emerald-400 font-mono text-sm">mkdir -p "$env:USERPROFILE\\.config\\opencode"</code>
       </div>
 
-      <h3 class="text-base font-semibold text-slate-800 dark:text-slate-200 mb-3">Configurar variables de entorno</h3>
-      <ol class="space-y-2 mb-6 text-sm text-slate-600 dark:text-slate-400">
-        <li class="flex items-start gap-2">
-          <span class="flex-shrink-0 w-5 h-5 rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-300 text-xs font-medium flex items-center justify-center mt-0.5">1</span>
-          <span>Presiona <strong class="text-slate-800 dark:text-slate-200">Windows + R</strong></span>
-        </li>
-        <li class="flex items-start gap-2">
-          <span class="flex-shrink-0 w-5 h-5 rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-300 text-xs font-medium flex items-center justify-center mt-0.5">2</span>
-          <span>Escribe: <code class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-700 rounded text-slate-700 dark:text-slate-300 font-mono text-xs">sysdm.cpl</code></span>
-        </li>
-        <li class="flex items-start gap-2">
-          <span class="flex-shrink-0 w-5 h-5 rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-300 text-xs font-medium flex items-center justify-center mt-0.5">3</span>
-          <span>Click en <strong class="text-slate-800 dark:text-slate-200">Environment Variables</strong></span>
-        </li>
-      </ol>
+      <h3 class="text-base font-semibold text-slate-800 dark:text-slate-200 mb-3">Agregar las variables de entorno</h3>
+      <p class="text-sm text-slate-600 dark:text-slate-400 mb-4">En la ventana de Environment Variables, en la sección <strong class="text-slate-800 dark:text-slate-200">"User variables for..."</strong>, click en <strong class="text-slate-800 dark:text-slate-200">"New"</strong> para cada variable:</p>
+
+      <div class="space-y-4 mb-6">
+        <div class="p-4 bg-slate-100 dark:bg-slate-800 rounded-xl">
+          <h4 class="font-semibold text-slate-800 dark:text-slate-200 text-sm mb-2">Variables de Slack</h4>
+          <div class="space-y-3 text-sm">
+            <div class="flex items-center gap-2">
+              <code class="px-2 py-1 bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300 rounded font-mono text-xs">SLACK_BOT_TOKEN</code>
+              <span class="text-slate-500">=</span>
+              <code class="px-2 py-1 bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded font-mono text-xs">xoxb-...</code>
+            </div>
+            <div class="flex items-center gap-2">
+              <code class="px-2 py-1 bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300 rounded font-mono text-xs">SLACK_TEAM_ID</code>
+              <span class="text-slate-500">=</span>
+              <code class="px-2 py-1 bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded font-mono text-xs">T...</code>
+            </div>
+            <div class="flex items-center gap-2">
+              <code class="px-2 py-1 bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300 rounded font-mono text-xs">SLACK_APP_TOKEN</code>
+              <span class="text-slate-500">=</span>
+              <code class="px-2 py-1 bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded font-mono text-xs">xapp-...</code>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-4 bg-slate-100 dark:bg-slate-800 rounded-xl">
+          <h4 class="font-semibold text-slate-800 dark:text-slate-200 text-sm mb-2">Variables de Google</h4>
+          <div class="space-y-3 text-sm">
+            <div class="flex items-center gap-2 flex-wrap">
+              <code class="px-2 py-1 bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300 rounded font-mono text-xs">GOOGLE_OAUTH_CREDENTIALS</code>
+              <span class="text-slate-500">=</span>
+              <code class="px-2 py-1 bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded font-mono text-xs">%USERPROFILE%\.config\opencode\google-calendar-credentials.json</code>
+            </div>
+            <div class="flex items-center gap-2 flex-wrap">
+              <code class="px-2 py-1 bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300 rounded font-mono text-xs">GOOGLE_SERVICE_ACCOUNT_KEY_FILE</code>
+              <span class="text-slate-500">=</span>
+              <code class="px-2 py-1 bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded font-mono text-xs">%USERPROFILE%\.config\opencode\google-sheets-service-account.json</code>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <div class="p-4 bg-amber-50 dark:bg-amber-900/30 border border-amber-200 dark:border-amber-800 rounded-xl mb-6">
         <div class="flex items-start gap-3">
@@ -324,8 +558,24 @@ const stepsData = [
             </svg>
           </div>
           <div>
-            <h4 class="font-semibold text-amber-900 dark:text-amber-300 text-sm mb-1">IMPORTANTE</h4>
-            <p class="text-amber-800 dark:text-amber-300 text-sm">Cierra y reabre Windows Terminal para que los cambios se apliquen.</p>
+            <h4 class="font-semibold text-amber-900 dark:text-amber-300 text-sm mb-1">⚠️ IMPORTANTE</h4>
+            <p class="text-amber-800 dark:text-amber-300 text-sm">Después de agregar las variables, <strong>cierra todas las ventanas de terminal</strong> y abre Windows Terminal de nuevo. Si los comandos no funcionan, reinicia tu computadora.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-4 bg-emerald-50 dark:bg-emerald-900/30 border border-emerald-200 dark:border-emerald-800 rounded-xl">
+        <div class="flex items-start gap-3">
+          <div class="flex-shrink-0 w-8 h-8 rounded-lg bg-emerald-100 dark:bg-emerald-900/50 flex items-center justify-center">
+            <svg class="w-4 h-4 text-emerald-600 dark:text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <div>
+            <h4 class="font-semibold text-emerald-900 dark:text-emerald-300 text-sm mb-1">Verificar</h4>
+            <p class="text-emerald-800 dark:text-emerald-300 text-sm">Para verificar que las variables están configuradas, abre una nueva terminal y escribe:</p>
+            <code class="text-emerald-900 dark:text-emerald-300 font-mono text-sm bg-emerald-100 dark:bg-emerald-900/50 px-2 py-1 rounded block mt-2">echo $env:SLACK_BOT_TOKEN</code>
+            <p class="text-emerald-800 dark:text-emerald-300 text-sm mt-1">Si ves texto (no vacío), la variable está configurada correctamente.</p>
           </div>
         </div>
       </div>
@@ -384,10 +634,106 @@ const stepsData = [
       </div>
 
       <h3 class="text-base font-semibold text-slate-800 dark:text-slate-200 mb-3">Habilitar Socket Mode</h3>
-      <p class="text-sm text-slate-600 dark:text-slate-400 mb-4">Genera un App-Level Token con el scope <code class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-700 rounded text-slate-700 dark:text-slate-300 font-mono text-xs">connections:write</code>.</p>
+      <ol class="space-y-2 mb-6 text-sm text-slate-600 dark:text-slate-400">
+        <li class="flex items-start gap-2">
+          <span class="flex-shrink-0 w-5 h-5 rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-300 text-xs font-medium flex items-center justify-center mt-0.5">1</span>
+          <span>Ve a <strong class="text-slate-800 dark:text-slate-200">"Socket Mode"</strong> en el menú lateral</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="flex-shrink-0 w-5 h-5 rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-300 text-xs font-medium flex items-center justify-center mt-0.5">2</span>
+          <span>Activa el toggle <strong class="text-slate-800 dark:text-slate-200">"Enable Socket Mode"</strong></span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="flex-shrink-0 w-5 h-5 rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-300 text-xs font-medium flex items-center justify-center mt-0.5">3</span>
+          <span>Ve a <strong class="text-slate-800 dark:text-slate-200">"Basic Information"</strong> → <strong class="text-slate-800 dark:text-slate-200">"App-Level Tokens"</strong></span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="flex-shrink-0 w-5 h-5 rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-300 text-xs font-medium flex items-center justify-center mt-0.5">4</span>
+          <span>Genera un token con nombre: <code class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-700 rounded text-slate-700 dark:text-slate-300 font-mono text-xs">MCP Server Token</code></span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="flex-shrink-0 w-5 h-5 rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-300 text-xs font-medium flex items-center justify-center mt-0.5">5</span>
+          <span>Agrega el scope: <code class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-700 rounded text-slate-700 dark:text-slate-300 font-mono text-xs">connections:write</code></span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="flex-shrink-0 w-5 h-5 rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-300 text-xs font-medium flex items-center justify-center mt-0.5">6</span>
+          <span>Copia el token (empieza con <code class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-700 rounded text-slate-700 dark:text-slate-300 font-mono text-xs">xapp-</code>) → Este es tu <strong class="text-slate-800 dark:text-slate-200">SLACK_APP_TOKEN</strong></span>
+        </li>
+      </ol>
+
+      <h3 class="text-base font-semibold text-slate-800 dark:text-slate-200 mb-3">Agregar permisos (OAuth Scopes)</h3>
+      <p class="text-sm text-slate-600 dark:text-slate-400 mb-3">Ve a <strong class="text-slate-800 dark:text-slate-200">"OAuth & Permissions"</strong> → <strong class="text-slate-800 dark:text-slate-200">"Bot Token Scopes"</strong> → click en <strong class="text-slate-800 dark:text-slate-200">"Add an OAuth Scope"</strong>:</p>
+      <div class="grid grid-cols-2 gap-2 mb-6">
+        <code class="px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded text-xs">channels:history</code>
+        <code class="px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded text-xs">channels:read</code>
+        <code class="px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded text-xs">chat:write</code>
+        <code class="px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded text-xs">reactions:write</code>
+        <code class="px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded text-xs">users:read</code>
+        <code class="px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded text-xs">users.profile:read</code>
+      </div>
+
+      <h3 class="text-base font-semibold text-slate-800 dark:text-slate-200 mb-3">Instalar app en workspace</h3>
+      <p class="text-sm text-slate-600 dark:text-slate-400 mb-4">Ve a <strong class="text-slate-800 dark:text-slate-200">"Install App"</strong> → <strong class="text-slate-800 dark:text-slate-200">"Install to Workspace"</strong> → <strong class="text-slate-800 dark:text-slate-200">"Allow"</strong></p>
+
+      <div class="p-4 bg-amber-50 dark:bg-amber-900/30 border border-amber-200 dark:border-amber-800 rounded-xl mb-4">
+        <div class="flex items-start gap-3">
+          <div class="flex-shrink-0 w-8 h-8 rounded-lg bg-amber-100 dark:bg-amber-900/50 flex items-center justify-center">
+            <svg class="w-4 h-4 text-amber-600 dark:text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+            </svg>
+          </div>
+          <div>
+            <h4 class="font-semibold text-amber-900 dark:text-amber-300 text-sm mb-1">⚠️ GUARDA ESTOS TOKENS</h4>
+            <p class="text-amber-800 dark:text-amber-300 text-sm">Necesitarás estos 3 tokens para configurar las variables de entorno:</p>
+            <ul class="text-amber-800 dark:text-amber-300 text-sm mt-2 space-y-1">
+              <li>• <strong>Bot User OAuth Token:</strong> <code class="px-1 py-0.5 bg-amber-100 dark:bg-amber-900/50 rounded text-xs">xoxb-...</code></li>
+              <li>• <strong>Team ID:</strong> <code class="px-1 py-0.5 bg-amber-100 dark:bg-amber-900/50 rounded text-xs">T...</code></li>
+              <li>• <strong>App-Level Token:</strong> <code class="px-1 py-0.5 bg-amber-100 dark:bg-amber-900/50 rounded text-xs">xapp-...</code></li>
+            </ul>
+          </div>
+        </div>
+      </div>
 
       <h3 class="text-base font-semibold text-slate-800 dark:text-slate-200 mb-3">Suscribir a eventos</h3>
-      <p class="text-sm text-slate-600 dark:text-slate-400">Agrega: app_mention, message.channels, message.groups, reaction_added, reaction_removed</p>
+      <ol class="space-y-2 mb-4 text-sm text-slate-600 dark:text-slate-400">
+        <li class="flex items-start gap-2">
+          <span class="flex-shrink-0 w-5 h-5 rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-300 text-xs font-medium flex items-center justify-center mt-0.5">1</span>
+          <span>Ve a <strong class="text-slate-800 dark:text-slate-200">"Event Subscriptions"</strong></span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="flex-shrink-0 w-5 h-5 rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-300 text-xs font-medium flex items-center justify-center mt-0.5">2</span>
+          <span>Activa <strong class="text-slate-800 dark:text-slate-200">"Enable Events"</strong></span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="flex-shrink-0 w-5 h-5 rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-300 text-xs font-medium flex items-center justify-center mt-0.5">3</span>
+          <span>En <strong class="text-slate-800 dark:text-slate-200">"Subscribe to events"</strong>, agrega:</span>
+        </li>
+      </ol>
+      <div class="grid grid-cols-2 gap-2 mb-4">
+        <code class="px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded text-xs">app_mention</code>
+        <code class="px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded text-xs">message.channels</code>
+        <code class="px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded text-xs">message.groups</code>
+        <code class="px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded text-xs">message.im</code>
+        <code class="px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded text-xs">message.mpim</code>
+        <code class="px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded text-xs">reaction_added</code>
+        <code class="px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded text-xs">reaction_removed</code>
+      </div>
+
+      <h3 class="text-base font-semibold text-slate-800 dark:text-slate-200 mb-3">Habilitar interactividad</h3>
+      <ol class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+        <li class="flex items-start gap-2">
+          <span class="flex-shrink-0 w-5 h-5 rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-300 text-xs font-medium flex items-center justify-center mt-0.5">1</span>
+          <span>Ve a <strong class="text-slate-800 dark:text-slate-200">"Interactivity & Shortcuts"</strong></span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="flex-shrink-0 w-5 h-5 rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-300 text-xs font-medium flex items-center justify-center mt-0.5">2</span>
+          <span>Activa el toggle de <strong class="text-slate-800 dark:text-slate-200">"Interactivity"</strong></span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="flex-shrink-0 w-5 h-5 rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-300 text-xs font-medium flex items-center justify-center mt-0.5">3</span>
+          <span>Usa esta URL como <strong class="text-slate-800 dark:text-slate-200">"Request URL"</strong>: <code class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-700 rounded text-slate-700 dark:text-slate-300 font-mono text-xs">https://socket-slack-relay.glitch.me</code></span>
+        </li>
+      </ol>
     `
   },
   {
@@ -470,12 +816,12 @@ const stepsData = [
         </li>
         <li class="flex items-start gap-2">
           <span class="flex-shrink-0 w-5 h-5 rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-300 text-xs font-medium flex items-center justify-center mt-0.5">5</span>
-          <span>Mueve a: <code class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-700 rounded text-slate-700 dark:text-slate-300 font-mono text-xs">C:\\Users\\TU_USUARIO\\.config\\opencode\\</code></span>
+          <span>Mueve a: <code class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-700 rounded text-slate-700 dark:text-slate-300 font-mono text-xs">%USERPROFILE%\.config\opencode\</code></span>
         </li>
       </ol>
 
       <h3 class="text-base font-semibold text-slate-800 dark:text-slate-200 mb-3">Configurar OAuth Consent</h3>
-      <ol class="space-y-2 mb-6 text-sm text-slate-600 dark:text-slate-400">
+      <ol class="space-y-2 mb-4 text-sm text-slate-600 dark:text-slate-400">
         <li class="flex items-start gap-2">
           <span class="flex-shrink-0 w-5 h-5 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400 text-xs font-medium flex items-center justify-center mt-0.5">1</span>
           <span>Ve a: <a href="https://console.cloud.google.com/auth/branding" target="_blank" class="text-indigo-600 dark:text-indigo-400 hover:underline font-medium">console.cloud.google.com/auth/branding</a></span>
@@ -488,11 +834,46 @@ const stepsData = [
           <span class="flex-shrink-0 w-5 h-5 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400 text-xs font-medium flex items-center justify-center mt-0.5">3</span>
           <span>Selecciona <strong class="text-slate-800 dark:text-slate-200">"External"</strong></span>
         </li>
+        <li class="flex items-start gap-2">
+          <span class="flex-shrink-0 w-5 h-5 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400 text-xs font-medium flex items-center justify-center mt-0.5">4</span>
+          <span>En <strong class="text-slate-800 dark:text-slate-200">"Test users"</strong>, agrega tu propio email para pruebas</span>
+        </li>
       </ol>
 
+      <div class="p-4 bg-amber-50 dark:bg-amber-900/30 border border-amber-200 dark:border-amber-800 rounded-xl mb-4">
+        <div class="flex items-start gap-3">
+          <div class="flex-shrink-0 w-8 h-8 rounded-lg bg-amber-100 dark:bg-amber-900/50 flex items-center justify-center">
+            <svg class="w-4 h-4 text-amber-600 dark:text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+            </svg>
+          </div>
+          <div>
+            <h4 class="font-semibold text-amber-900 dark:text-amber-300 text-sm mb-1">⚠️Scopes obligatorios</h4>
+            <p class="text-amber-800 dark:text-amber-300 text-sm">En <strong class="text-amber-900 dark:text-amber-300">"Scopes"</strong>, agrega estos 3 scopes de Google Calendar:</p>
+            <code class="block text-amber-800 dark:text-amber-300 font-mono text-xs mt-2">.../auth/calendar.calendarlist.readonly</code>
+            <code class="block text-amber-800 dark:text-amber-300 font-mono text-xs">.../auth/calendar.events.freebusy</code>
+            <code class="block text-amber-800 dark:text-amber-300 font-mono text-xs">.../auth/calendar.events.readonly</code>
+          </div>
+        </div>
+      </div>
+
       <h3 class="text-base font-semibold text-slate-800 dark:text-slate-200 mb-3">Instalar MCP</h3>
-      <div class="p-3 bg-slate-900 dark:bg-slate-800 rounded-lg">
+      <div class="p-3 bg-slate-900 dark:bg-slate-800 rounded-lg mb-4">
         <code class="text-emerald-400 font-mono text-sm">pnpm add -g @cocal/google-calendar-mcp</code>
+      </div>
+
+      <div class="p-4 bg-emerald-50 dark:bg-emerald-900/30 border border-emerald-200 dark:border-emerald-800 rounded-xl">
+        <div class="flex items-start gap-3">
+          <div class="flex-shrink-0 w-8 h-8 rounded-lg bg-emerald-100 dark:bg-emerald-900/50 flex items-center justify-center">
+            <svg class="w-4 h-4 text-emerald-600 dark:text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <div>
+            <h4 class="font-semibold text-emerald-900 dark:text-emerald-300 text-sm mb-1">Primera autenticación</h4>
+            <p class="text-emerald-800 dark:text-emerald-300 text-sm">La primera vez que uses el MCP de Calendar, se abrirá una ventana del navegador para autorizar el acceso. Usa la misma cuenta de Google que agregaste como test user.</p>
+          </div>
+        </div>
       </div>
     `
   },
@@ -524,7 +905,7 @@ const stepsData = [
         </li>
         <li class="flex items-start gap-2">
           <span class="flex-shrink-0 w-5 h-5 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400 text-xs font-medium flex items-center justify-center mt-0.5">3</span>
-          <span>Mueve a: <code class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-700 rounded text-slate-700 dark:text-slate-300 font-mono text-xs">C:\\Users\\TU_USUARIO\\.config\\opencode\\</code></span>
+          <span>Mueve a: <code class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-700 rounded text-slate-700 dark:text-slate-300 font-mono text-xs">%USERPROFILE%\.config\opencode\</code></span>
         </li>
       </ol>
 
@@ -557,16 +938,61 @@ const stepsData = [
 
       <h3 class="text-base font-semibold text-slate-800 dark:text-slate-200 mb-3">Crear archivo</h3>
       <div class="p-4 bg-slate-900 dark:bg-slate-800 rounded-xl overflow-x-auto mb-6">
-        <pre class="text-sm font-mono text-slate-300 whitespace-pre-wrap">{ "mcp": { "slack": { "type": "local", "command": ["npx", "-y", "@modelcontextprotocol/server-slack"], "enabled": true, "environment": { "SLACK_BOT_TOKEN": "$SLACK_BOT_TOKEN", "SLACK_TEAM_ID": "$SLACK_TEAM_ID" } } }, "google-calendar": { "type": "local", "command": ["npx", "-y", "@cocal/google-calendar-mcp"], "enabled": true }, "google-sheets": { "type": "local", "command": ["npx", "-y", "mcp-gsheets"], "enabled": true } } }</pre>
+        <pre class="text-sm font-mono text-slate-300 whitespace-pre-wrap">{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "slack": {
+      "type": "local",
+      "command": ["npx", "-y", "@modelcontextprotocol/server-slack"],
+      "enabled": true,
+      "environment": {
+        "SLACK_BOT_TOKEN": "$SLACK_BOT_TOKEN",
+        "SLACK_TEAM_ID": "$SLACK_TEAM_ID",
+        "SLACK_APP_TOKEN": "$SLACK_APP_TOKEN"
+      }
+    },
+    "google-calendar": {
+      "type": "local",
+      "command": ["npx", "-y", "@cocal/google-calendar-mcp"],
+      "enabled": true,
+      "environment": {
+        "GOOGLE_OAUTH_CREDENTIALS": "$GOOGLE_OAUTH_CREDENTIALS"
+      }
+    },
+    "google-sheets": {
+      "type": "local",
+      "command": ["npx", "-y", "mcp-gsheets"],
+      "enabled": true,
+      "environment": {
+        "GOOGLE_SERVICE_ACCOUNT_KEY_FILE": "$GOOGLE_SERVICE_ACCOUNT_KEY_FILE"
+      }
+    }
+  }
+}</pre>
       </div>
 
       <h3 class="text-base font-semibold text-slate-800 dark:text-slate-200 mb-3">Guardar</h3>
-      <p class="text-sm text-slate-600 dark:text-slate-400 mb-4">Guarda en: <code class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-700 rounded text-slate-700 dark:text-slate-300 font-mono text-xs">C:\\Users\\TU_USUARIO\\.config\\opencode\\opencode.jsonc</code></p>
+      <p class="text-sm text-slate-600 dark:text-slate-400 mb-4">Guarda en: <code class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-700 rounded text-slate-700 dark:text-slate-300 font-mono text-xs">%USERPROFILE%\.config\opencode\opencode.jsonc</code></p>
+
+      <div class="p-4 bg-amber-50 dark:bg-amber-900/30 border border-amber-200 dark:border-amber-800 rounded-xl mb-4">
+        <div class="flex items-start gap-3">
+          <div class="flex-shrink-0 w-8 h-8 rounded-lg bg-amber-100 dark:bg-amber-900/50 flex items-center justify-center">
+            <svg class="w-4 h-4 text-amber-600 dark:text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+            </svg>
+          </div>
+          <div>
+            <h4 class="font-semibold text-amber-900 dark:text-amber-300 text-sm mb-1">⚠️ Importante</h4>
+            <p class="text-amber-800 dark:text-amber-300 text-sm">Ahora el archivo incluye <strong class="text-amber-900 dark:text-amber-300">SLACK_APP_TOKEN</strong> que es necesario para Socket Mode. Asegúrate de haber configurado esta variable de entorno en el Paso 6.</p>
+          </div>
+        </div>
+      </div>
 
       <h3 class="text-base font-semibold text-slate-800 dark:text-slate-200 mb-3">Verificar</h3>
-      <div class="p-3 bg-slate-900 dark:bg-slate-800 rounded-lg">
+      <div class="p-3 bg-slate-900 dark:bg-slate-800 rounded-lg mb-4">
         <code class="text-emerald-400 font-mono text-sm">opencode mcp list</code>
       </div>
+      <p class="text-sm text-slate-600 dark:text-slate-400">Deberías ver los 3 MCP servers listados: slack, google-calendar, google-sheets</p>
     `
   },
   {
@@ -610,7 +1036,7 @@ const stepsData = [
       </div>
 
       <h3 class="text-base font-semibold text-slate-800 dark:text-slate-200 mb-3">Guardar</h3>
-      <p class="text-sm text-slate-600 dark:text-slate-400">Guarda en: <code class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-700 rounded text-slate-700 dark:text-slate-300 font-mono text-xs">C:\\laragon\\www\\staytrue\\AGENTS.md</code></p>
+      <p class="text-sm text-slate-600 dark:text-slate-400">Guarda en la carpeta de tu proyecto donde trabajarás con OpenCode, por ejemplo: <code class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-700 rounded text-slate-700 dark:text-slate-300 font-mono text-xs">C:\proyectos\miproyecto\AGENTS.md</code></p>
     `
   },
   {
@@ -664,7 +1090,7 @@ const stepsData = [
       </div>
 
       <h3 class="text-base font-semibold text-slate-800 dark:text-slate-200 mb-3">Ubicación</h3>
-      <p class="text-sm text-slate-600 dark:text-slate-400 mb-6"><code class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-700 rounded text-slate-700 dark:text-slate-300 font-mono text-xs">C:\\Users\\TU_USUARIO\\.config\\opencode\\scripts\\</code></p>
+      <p class="text-sm text-slate-600 dark:text-slate-400 mb-6"><code class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-700 rounded text-slate-700 dark:text-slate-300 font-mono text-xs">%USERPROFILE%\.config\opencode\scripts\</code></p>
 
       <h3 class="text-base font-semibold text-slate-800 dark:text-slate-200 mb-3">verify-all.ps1</h3>
       <div class="p-4 bg-slate-900 dark:bg-slate-800 rounded-xl overflow-x-auto mb-6">
@@ -676,9 +1102,33 @@ Write-Host "=== Verificando configuracion ==="
       </div>
 
       <h3 class="text-base font-semibold text-slate-800 dark:text-slate-200 mb-3">Ejecutar</h3>
-      <div class="p-4 bg-slate-900 dark:bg-slate-800 rounded-xl overflow-x-auto">
+      <div class="p-4 bg-slate-900 dark:bg-slate-800 rounded-xl overflow-x-auto mb-6">
         <pre class="text-sm font-mono text-slate-300">cd $env:USERPROFILE\.config\opencode\scripts
 .\verify-all.ps1</pre>
+      </div>
+
+      <h3 class="text-base font-semibold text-slate-800 dark:text-slate-200 mb-3">Solución de problemas comunes</h3>
+      <div class="space-y-3">
+        <div class="p-4 bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800 rounded-xl">
+          <h4 class="font-semibold text-red-900 dark:text-red-300 text-sm mb-1">Error: "command not found" o "'node' no se reconoce"</h4>
+          <p class="text-red-800 dark:text-red-300 text-sm">Cierra y vuelve a abrir Windows Terminal. Si persiste, reinicia tu computadora para que Node.js se agregue al PATH.</p>
+        </div>
+        <div class="p-4 bg-red-50 dark:bg-red-900/30 border border-red-200 dark:text-red-800 dark:border-red-800 rounded-xl">
+          <h4 class="font-semibold text-red-900 dark:text-red-300 text-sm mb-1">Error: "npm access denied" o "EACCES"</h4>
+          <p class="text-red-800 dark:text-red-300 text-sm">Ejecuta en PowerShell: <code class="px-1 py-0.5 bg-red-100 dark:bg-red-900/50 rounded text-xs">Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser</code></p>
+        </div>
+        <div class="p-4 bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800 rounded-xl">
+          <h4 class="font-semibold text-red-900 dark:text-red-300 text-sm mb-1">Error: "MCP server failed to start"</h4>
+          <p class="text-red-800 dark:text-red-300 text-sm">Verifica que las variables de entorno estén configuradas correctamente en el Paso 6. Ejecuta <code class="px-1 py-0.5 bg-red-100 dark:bg-red-900/50 rounded text-xs">echo $env:NOMBRE_VARIABLE</code> para verificar.</p>
+        </div>
+        <div class="p-4 bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800 rounded-xl">
+          <h4 class="font-semibold text-red-900 dark:text-red-300 text-sm mb-1">Google Calendar: "Authentication error"</h4>
+          <p class="text-red-800 dark:text-red-300 text-sm">Asegúrate de haber agregado tu email como test user en la configuración de OAuth consent de Google Cloud.</p>
+        </div>
+        <div class="p-4 bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800 rounded-xl">
+          <h4 class="font-semibold text-red-900 dark:text-red-300 text-sm mb-1">Google Sheets: "Permission denied"</h4>
+          <p class="text-red-800 dark:text-red-300 text-sm">Comparte el spreadsheet con el email del service account (busca <code class="px-1 py-0.5 bg-red-100 dark:bg-red-900/50 rounded text-xs">client_email</code> en tu archivo JSON).</p>
+        </div>
       </div>
     `
   }
